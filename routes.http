@@ -1,0 +1,11 @@
+# @name create-menu-item
+POST http://localhost:3333/menu
+Content-Type: application/json
+
+{
+  "title": "Burger 1",
+  "description": "Description",
+  "price": 500,
+  "quantity": 1,
+  "category": "BURGER"
+}
