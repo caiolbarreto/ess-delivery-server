@@ -7,7 +7,6 @@ import { envSchema } from 'src/env/env';
 import { beforeAll, afterAll } from 'vitest';
 
 config({ path: '.env', override: true });
-// config({ path: '.env.test', override: true });
 
 const env = envSchema.parse(process.env);
 
