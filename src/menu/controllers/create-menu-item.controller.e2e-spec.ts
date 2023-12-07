@@ -21,7 +21,7 @@ describe('Create an item from the menu (E2E)', () => {
     await app.init();
   });
 
-  it('should create an menu item', async () => {
+  it('[POST] should create an menu item', async () => {
     const response = await request(app.getHttpServer()).post('/menu').send({
       title: 'Burger 1',
       description: 'Description',
@@ -37,8 +37,6 @@ describe('Create an item from the menu (E2E)', () => {
         title: 'Burger 1',
       },
     });
-
-    console.log('test', menuItem);
 
     expect(menuItem).toBeTruthy();
   });

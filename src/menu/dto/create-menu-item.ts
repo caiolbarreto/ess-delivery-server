@@ -5,7 +5,7 @@ const createMenuItemSchema = z.object({
   description: z.string(),
   price: z.number(),
   quantity: z.number(),
-  category: z.enum(['BURGER', 'SIDES', 'DRINK']),
+  category: z.enum(['BURGERS', 'SIDES', 'DRINKS']),
 });
 
 export type CreateMenuItemSchema = z.infer<typeof createMenuItemSchema>;

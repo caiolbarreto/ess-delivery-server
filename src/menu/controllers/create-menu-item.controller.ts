@@ -8,7 +8,7 @@ export class CreateMenuItemController {
 
   @Post()
   @HttpCode(201)
-  async create(@Body() menu: CreateMenuItemSchema) {
+  async handle(@Body() menu: CreateMenuItemSchema) {
     await this.menuService.create({
       title: menu.title,
       description: menu.description,
