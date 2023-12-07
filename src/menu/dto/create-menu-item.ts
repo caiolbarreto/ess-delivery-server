@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const createMenuItemSchema = z.object({
+export const createMenuItemSchema = z.object({
   title: z.string(),
   description: z.string(),
   price: z.number(),
