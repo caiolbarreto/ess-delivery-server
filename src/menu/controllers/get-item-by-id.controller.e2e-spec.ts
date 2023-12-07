@@ -6,7 +6,7 @@ import { MenuItemFactory } from 'test/factories/make-menu-item';
 import request from 'supertest';
 import { PrismaService } from 'src/prisma.service';
 
-describe('Get all the menu items by category (E2E)', () => {
+describe('Get one specific item by id', () => {
   let app: INestApplication;
   let menuItemFactory: MenuItemFactory;
 
@@ -23,27 +23,20 @@ describe('Get all the menu items by category (E2E)', () => {
     await app.init();
   });
 
-  it('[GET] should get all menu items by category', async () => {
-    await Promise.all([
-      menuItemFactory.makePrismaMenuItem({
-        category: 'BURGERS',
-      }),
-      menuItemFactory.makePrismaMenuItem({
-        category: 'BURGERS',
-      }),
-      menuItemFactory.makePrismaMenuItem({
-        category: 'BURGERS',
-      }),
-      menuItemFactory.makePrismaMenuItem({
-        category: 'SIDES',
-      }),
-    ]);
+  it('[GET] should get one specific item by id', async () => {
+    const menuItem = await menuItemFactory.makePrismaMenuItem({
+      title: 'Burger test',
+    });
 
     const response = await request(app.getHttpServer()).get(
-      '/menu/BURGERS/items',
+      `/menu/item/${menuItem.id}`,
     );
 
     expect(response.statusCode).toBe(200);
-    expect(response.body).toHaveLength(3);
+    expect(response.body).toEqual(
+      expect.objectContaining({
+        title: 'Burger test',
+      }),
+    );
   });
 });

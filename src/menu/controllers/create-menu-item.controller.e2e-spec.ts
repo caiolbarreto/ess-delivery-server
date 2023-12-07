@@ -27,7 +27,7 @@ describe('Create an item from the menu (E2E)', () => {
       description: 'Description',
       price: 200,
       quantity: 1,
-      category: 'BURGER',
+      category: 'BURGERS',
     });
 
     expect(response.statusCode).toBe(201);

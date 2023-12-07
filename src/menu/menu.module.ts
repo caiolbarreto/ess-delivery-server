@@ -3,9 +3,10 @@ import { PrismaService } from 'src/prisma.service';
 import { CreateMenuItemController } from './controllers/create-menu-item.controller';
 import { MenuService } from './services/menu.service';
 import { GetItemsByCategory } from './controllers/get-items-by-category.controller';
+import { GetItemById } from './controllers/get-item-by-id.controller';
 
 @Module({
-  controllers: [CreateMenuItemController, GetItemsByCategory],
+  controllers: [CreateMenuItemController, GetItemsByCategory, GetItemById],
   providers: [MenuService, PrismaService],
   exports: [MenuService],
 })
